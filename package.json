@@ -1,0 +1,13 @@
+{
+  "name": "rk-cron-monitor",
+  "version": "1.0.0",
+  "description": "Cron monitoring API with F1, F3, F4 features",
+  "main": "api/check.js",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vercel": "^34.2.0"
+  }
+}
