@@ -1,0 +1,19 @@
+name: Cron Monitor Heartbeat
+on:
+  schedule:
+    - cron: '*/5 * * * *' # Runs every 5 mins
+  workflow_dispatch: # Allows manual run
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Cron API
+        run: |
+          curl -X POST https://your-vercel-domain.vercel.app/api/check \
+          -H "Content-Type: application/json" \
+          -d '{
+            "job_name": "github-action-heartbeat",
+            "cron_expression": "*/5 * * * *",
+            "last_run_timestamp": "'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'"
+          }'
